@@ -17,20 +17,22 @@ else
 end
 
 function string.fromhex(str)
+    -- inp <- string in hex-representation
+    -- outp <- byte-table
     local x = {}
     for y in str:gmatch('(..)') do
         x[#x+1] = string.char( tonumber(y, 16) )
-        --print( string.char( tonumber(y, 16) ) )
     end
     return table.concat( x )
 end
 
 function payload_generator (input)
+    -- strip non-hex characters
     input = input:gsub("%W", "")
     input = input:gsub("[g-z,G-Z]", "")
     input = input:gsub("%w", string.upper)
     input = string.rep("FF", 6) ..  string.rep(input, 16)
-    return input --tonumber(input, 16)
+    return input
 end
 
 payload = payload_generator(mac_address)
