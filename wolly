@@ -1,8 +1,9 @@
---[[ #import socket
-#import args
+#!/usr/bin/env lua
 
+--[[ 
 
-#input = strip (input)
+    Usage: ./wolly 00:11:22:00:11:22 10.0.0.255
+
 --]]
 
 local socket = require("socket")
