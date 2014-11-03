@@ -17,8 +17,8 @@ else
 end
 
 function string.fromhex(str)
-    -- inp <- string in hex-representation
-    -- outp <- byte-table
+    -- inp <- hexstring
+    -- outp <- concat-bytes
     local x = {}
     for y in str:gmatch('(..)') do
         x[#x+1] = string.char( tonumber(y, 16) )
